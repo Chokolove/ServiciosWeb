@@ -1,0 +1,13 @@
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\AccesoDatos.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\AccesoDatos.pdb
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\Google.Protobuf.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\Modelo.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\MySql.Data.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\Modelo.pdb
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\Google.Protobuf.xml
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\bin\Debug\MySql.Data.xml
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\obj\Debug\AccesoDatos.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\AccesoDatos\obj\Debug\AccesoDatos.pdb
