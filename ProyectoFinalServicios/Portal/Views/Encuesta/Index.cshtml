@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Modelo.EncuestaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdEncuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.NomUsu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomEncuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContRespuestas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FchaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoEstado.NomTipoEstado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdEncuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.NomUsu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomEncuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContRespuestas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FchaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoEstado.NomTipoEstado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

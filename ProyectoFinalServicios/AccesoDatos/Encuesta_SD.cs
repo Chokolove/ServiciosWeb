@@ -12,31 +12,29 @@ namespace AccesoDatos
 {
     public class Encuesta_SD : ClaseBase
     {
-        Secundarios_SD secundarios = new Secundarios_SD();
-        Usuario_SD usuario_SD = new Usuario_SD();
         public List<EncuestaModel> Listar()
         {
             List<EncuestaModel> lista = new List<EncuestaModel>();
             MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "select * from encuesta";
+            command.CommandText = "SELECT e.idEncuesta,e.idUsuario, u.nomUsu, e.nomEncuesta, e.contRespuestas, e.fchaCreacion, e.idEstado, te.nomEstado FROM encuesta e inner join usuario u on e.idUsuario = u.idUsuario inner join tipoestado te on e.idEstado = te.idEstado order by e.idEncuesta; ";
 
             try
             {
                 conn.Open();
                 MySqlDataReader reader = command.ExecuteReader();
-                reader.Read();
+               
                 while (reader.Read())
                 {
                     EncuestaModel oEncuesta = new EncuestaModel();
                     oEncuesta.IdEncuesta = reader.GetInt32(0);
-                    oEncuesta.Usuario = usuario_SD.buscarUsuario( reader.GetInt32(1));
-                    oEncuesta.NomEncuesta = reader.GetString(2);
-                    oEncuesta.ContRespuestas = reader.GetInt32(3);
-                    oEncuesta.FchaCreacion = reader.GetString(4);
-
-              
-                    oEncuesta.TipoEstado= secundarios.buscaTipoEstado( reader.GetInt32(5) );
+                    oEncuesta.Usuario.IdUsuario = reader.GetInt32(1);
+                    oEncuesta.Usuario.NomUsu = reader.GetString(2);
+                    oEncuesta.NomEncuesta = reader.GetString(3);
+                    oEncuesta.ContRespuestas = reader.GetInt32(4);
+                    oEncuesta.FchaCreacion = reader.GetString(5);
+                    oEncuesta.TipoEstado.IdTipoEstado = reader.GetInt32(6);
+                    oEncuesta.TipoEstado.NomTipoEstado = reader.GetString(7);
 
                     lista.Add(oEncuesta);
                 }
