@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2018 a las 05:18:55
+-- Tiempo de generación: 29-11-2018 a las 20:08:12
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `encuestadb`
 --
+create database `encuestadb`;
+use `encuestadb`;
 
 -- --------------------------------------------------------
 
@@ -81,6 +83,16 @@ CREATE TABLE `pregunta` (
   `idTipoPregunta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `pregunta`
+--
+
+INSERT INTO `pregunta` (`idPregunta`, `idEncuesta`, `descPregunta`, `idTipoPregunta`) VALUES
+(1, 1, 'Pregunta Numero 1', 2),
+(2, 1, 'Pregunta Numero 2', 2),
+(3, 1, 'Pregunta Numero 3', 1),
+(4, 1, 'Pregunta Numero 4', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +105,22 @@ CREATE TABLE `respuesta` (
   `descRespuesta` varchar(255) NOT NULL,
   `contRespuesta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `respuesta`
+--
+
+INSERT INTO `respuesta` (`idRespuesta`, `idPregunta`, `descRespuesta`, `contRespuesta`) VALUES
+(1, 1, 'Respuesta1 Pregunta1', 0),
+(2, 1, 'Respuesta2 Pregunta1', 0),
+(3, 1, 'Respuesta3 Pregunta1', 0),
+(4, 2, 'Respuesta1 Pregunta2', 0),
+(5, 2, 'Respuesta2 Pregunta2', 0),
+(6, 2, 'Respuesta3 Pregunta2', 0),
+(7, 4, 'Respuesta1 Pregunta4', 0),
+(8, 4, 'Respuesta2 Pregunta4', 0),
+(9, 4, 'Respuesta3 Pregunta4', 0),
+(10, 3, '--Abierta--', 0);
 
 -- --------------------------------------------------------
 
@@ -284,13 +312,13 @@ ALTER TABLE `encuesta`
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoempresa`
