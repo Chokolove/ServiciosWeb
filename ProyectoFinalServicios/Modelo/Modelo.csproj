@@ -47,9 +47,12 @@
     <Compile Include="EmpresaModelo.cs" />
     <Compile Include="EncuestaModel.cs" />
     <Compile Include="ModeloBase.cs" />
+    <Compile Include="PreguntaModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespuestaModelo.cs" />
     <Compile Include="TipoEmpresaModel.cs" />
     <Compile Include="TipoEstadoModelo.cs" />
+    <Compile Include="TipoPreguntaModelo.cs" />
     <Compile Include="TipoUsuarioModel.cs" />
     <Compile Include="UsuarioModelo.cs" />
   </ItemGroup>

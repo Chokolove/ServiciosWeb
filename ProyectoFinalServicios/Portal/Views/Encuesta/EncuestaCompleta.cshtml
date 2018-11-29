@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Modelo.RespuestaModelo>
+
+@{
+    ViewBag.Title = "EncuestaCompleta";
+}
+
+<h2>EncuestaCompleta</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pregunta.encuesta.IdEncuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pregunta.encuesta.NomEncuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pregunta.idPregunta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pregunta.descPregunta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pregunta.tipoPregunta.idTipoPregunta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idRespuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descRespuesta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pregunta.encuesta.IdEncuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pregunta.encuesta.NomEncuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pregunta.idPregunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pregunta.descPregunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pregunta.tipoPregunta.idTipoPregunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idRespuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descRespuesta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

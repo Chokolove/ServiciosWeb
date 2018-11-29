@@ -37,12 +37,37 @@ namespace Portal.Controllers
                 }
             }
 
-
-
-
-
-
             return View(encuestas);
+        }
+
+         // GET: Encuesta/id
+        public ActionResult EncuestaCompleta(int id)
+        {
+            IEnumerable<RespuestaModelo> respuestas = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:60025/api/");
+                var responseTask = client.GetAsync("Encuesta/"+id);
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                  
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<RespuestaModelo>>();
+                    readTask.Wait();
+
+                    respuestas = readTask.Result;
+                }
+                else
+                {
+
+                    respuestas = Enumerable.Empty<RespuestaModelo>();
+                    ModelState.AddModelError(string.Empty, "Server error try after some time.");
+                }
+            }
+
+            return View(respuestas);
         }
     }
 }

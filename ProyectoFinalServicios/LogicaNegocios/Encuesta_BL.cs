@@ -22,5 +22,17 @@ namespace LogicaNegocios
                 throw ex;
             }
         }
+        public List<RespuestaModelo> ListarEncuestaCompleta(int id)
+        {
+            try
+            {
+                return oEncuesta_SD.ListarEncuestaCompleta(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

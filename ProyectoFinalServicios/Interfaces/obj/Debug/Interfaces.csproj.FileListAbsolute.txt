@@ -7,3 +7,12 @@ D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\Interfa
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.dll
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.pdb
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\bin\Debug\Interfaces.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\bin\Debug\Interfaces.pdb
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\bin\Debug\Modelo.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\bin\Debug\Modelo.pdb
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csprojAssemblyReference.cache
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.dll
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.pdb
