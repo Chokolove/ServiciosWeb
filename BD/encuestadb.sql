@@ -2,6 +2,52 @@
 create database `encuestadb`;
 use `encuestadb`;
 
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipoempresa`
+--
+
+CREATE TABLE `tipoempresa` (
+  `idTipoEmpresa` int(11) NOT NULL,
+  `nomTipoEmpresa` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipoempresa`
+--
+
+INSERT INTO `tipoempresa` (`idTipoEmpresa`, `nomTipoEmpresa`) VALUES
+(1, 'Developer'),
+(2, 'Comercio');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipoestado`
+--
+
+CREATE TABLE `tipoestado` (
+  `idEstado` int(11) NOT NULL,
+  `nomEstado` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipoestado`
+--
+
+INSERT INTO `tipoestado` (`idEstado`, `nomEstado`) VALUES
+(1, 'Desactivado'),
+(2, 'Activado');
+
+-- --------------------------------------------------------
+
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -213,48 +259,5 @@ CREATE TABLE `cliente_lista_respuesta` (
   `idRespuesta` int(11) NOT NULL references respuesta,
   `fechaCreacion` datetime NOT NULL default now()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipoempresa`
---
-
-CREATE TABLE `tipoempresa` (
-  `idTipoEmpresa` int(11) NOT NULL,
-  `nomTipoEmpresa` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tipoempresa`
---
-
-INSERT INTO `tipoempresa` (`idTipoEmpresa`, `nomTipoEmpresa`) VALUES
-(1, 'Developer'),
-(2, 'Comercio');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipoestado`
---
-
-CREATE TABLE `tipoestado` (
-  `idEstado` int(11) NOT NULL,
-  `nomEstado` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tipoestado`
---
-
-INSERT INTO `tipoestado` (`idEstado`, `nomEstado`) VALUES
-(1, 'Desactivado'),
-(2, 'Activado');
-
--- --------------------------------------------------------
 
 
