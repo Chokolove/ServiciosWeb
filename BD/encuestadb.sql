@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2018 a las 20:08:12
+-- Tiempo de generación: 03-12-2018 a las 00:24:37
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -21,8 +21,53 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `encuestadb`
 --
+
+
 create database `encuestadb`;
 use `encuestadb`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_encuesta`
+--
+
+CREATE TABLE `cliente_encuesta` (
+  `idClienteEncuesta` int(11) NOT NULL,
+  `idEncuesta` int(11) NOT NULL,
+  `userAgent` varchar(255) DEFAULT NULL,
+  `fechaCreacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_lista_respuesta`
+--
+
+CREATE TABLE `cliente_lista_respuesta` (
+  `idClienteListaRespuesta` int(11) NOT NULL,
+  `idClienteEncuesta` int(11) NOT NULL,
+  `idPregunta` int(11) NOT NULL,
+  `idRespuesta` int(11) NOT NULL,
+  `fechaCreacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_respuesta`
+--
+
+CREATE TABLE `cliente_respuesta` (
+  `idClienteRespuesta` int(11) NOT NULL,
+  `idClienteEncuesta` int(11) NOT NULL,
+  `idPregunta` int(11) NOT NULL,
+  `string_value` varchar(255) DEFAULT NULL,
+  `int_value` int(11) DEFAULT NULL,
+  `double_value` double DEFAULT NULL,
+  `fechaCreacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -34,7 +79,7 @@ CREATE TABLE `empresa` (
   `idEmpresa` int(11) NOT NULL,
   `nomEmpresa` varchar(40) NOT NULL,
   `idTipoEmpresa` int(11) NOT NULL,
-  `fchaCreacion` varchar(10) NOT NULL,
+  `fechaCreacion` varchar(10) NOT NULL,
   `idEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,7 +87,7 @@ CREATE TABLE `empresa` (
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`idEmpresa`, `nomEmpresa`, `idTipoEmpresa`, `fchaCreacion`, `idEstado`) VALUES
+INSERT INTO `empresa` (`idEmpresa`, `nomEmpresa`, `idTipoEmpresa`, `fechaCreacion`, `idEstado`) VALUES
 (1, 'Developer', 1, '2018-11-17', 2),
 (2, 'Prueba1', 2, '2018-11-17', 2);
 
@@ -56,8 +101,7 @@ CREATE TABLE `encuesta` (
   `idEncuesta` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
   `nomEncuesta` varchar(40) NOT NULL,
-  `contRespuestas` int(11) NOT NULL,
-  `fchaCreacion` varchar(10) NOT NULL,
+  `fechaCreacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idEstado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -65,10 +109,10 @@ CREATE TABLE `encuesta` (
 -- Volcado de datos para la tabla `encuesta`
 --
 
-INSERT INTO `encuesta` (`idEncuesta`, `idUsuario`, `nomEncuesta`, `contRespuestas`, `fchaCreacion`, `idEstado`) VALUES
-(1, 1, 'PruebaEncuesta1', 0, '2018-11-17', 2),
-(2, 1, 'PruebaEncuesta2', 0, '2018-11-17', 2),
-(3, 1, 'PruebaEncuesta2', 0, '2018-11-17', 1);
+INSERT INTO `encuesta` (`idEncuesta`, `idUsuario`, `nomEncuesta`, `fechaCreacion`, `idEstado`) VALUES
+(1, 1, 'PruebaEncuesta1', '2018-11-17 00:00:00', 2),
+(2, 1, 'PruebaEncuesta2', '2018-11-17 00:00:00', 2),
+(3, 1, 'PruebaEncuesta2', '2018-11-17 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -102,25 +146,18 @@ INSERT INTO `pregunta` (`idPregunta`, `idEncuesta`, `descPregunta`, `idTipoPregu
 CREATE TABLE `respuesta` (
   `idRespuesta` int(11) NOT NULL,
   `idPregunta` int(11) NOT NULL,
-  `descRespuesta` varchar(255) NOT NULL,
-  `contRespuesta` int(11) NOT NULL
+  `descRespuesta` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respuesta`
 --
 
-INSERT INTO `respuesta` (`idRespuesta`, `idPregunta`, `descRespuesta`, `contRespuesta`) VALUES
-(1, 1, 'Respuesta1 Pregunta1', 0),
-(2, 1, 'Respuesta2 Pregunta1', 0),
-(3, 1, 'Respuesta3 Pregunta1', 0),
-(4, 2, 'Respuesta1 Pregunta2', 0),
-(5, 2, 'Respuesta2 Pregunta2', 0),
-(6, 2, 'Respuesta3 Pregunta2', 0),
-(7, 4, 'Respuesta1 Pregunta4', 0),
-(8, 4, 'Respuesta2 Pregunta4', 0),
-(9, 4, 'Respuesta3 Pregunta4', 0),
-(10, 3, '--Abierta--', 0);
+INSERT INTO `respuesta` (`idRespuesta`, `idPregunta`, `descRespuesta`) VALUES
+(1, 1, 'Respuesta1 Pregunta1'),
+(2, 1, 'Respuesta2 Pregunta1'),
+(3, 1, 'Respuesta3 Pregunta1'),
+(10, 3, '--Abierta--');
 
 -- --------------------------------------------------------
 
@@ -177,7 +214,7 @@ CREATE TABLE `tipopregunta` (
 
 INSERT INTO `tipopregunta` (`idTipoPregunta`, `nomTipoPregunta`) VALUES
 (1, 'Abierta'),
-(2, 'Radial'),
+(2, 'Radio'),
 (3, 'CheckBox');
 
 -- --------------------------------------------------------
@@ -211,30 +248,66 @@ CREATE TABLE `usuario` (
   `Login` varchar(40) NOT NULL,
   `Pass` varchar(40) NOT NULL,
   `nomUsu` varchar(255) NOT NULL,
-  `idEmpresa` int(11) NOT NULL,
-  `fchaCreacion` varchar(10) NOT NULL,
+  `fechaCreacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idTipoUsuario` int(11) NOT NULL,
-  `idEstado` int(11) NOT NULL
+  `idEstado` int(11) NOT NULL,
+  `token` varchar(100) DEFAULT NULL,
+  `app_secret` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `Login`, `Pass`, `nomUsu`, `idEmpresa`, `fchaCreacion`, `idTipoUsuario`, `idEstado`) VALUES
-(1, 'Dev1', 'facil123', 'CarlosLL', 1, '2018-11-17', 1, 2);
+INSERT INTO `usuario` (`idUsuario`, `Login`, `Pass`, `nomUsu`, `fechaCreacion`, `idTipoUsuario`, `idEstado`, `token`, `app_secret`) VALUES
+(1, 'Dev1', 'facil123', 'CarlosLL', '2018-11-17 00:00:00', 1, 2, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario_empresa`
+--
+
+CREATE TABLE `usuario_empresa` (
+  `idUsuarioEmpresa` int(11) NOT NULL,
+  `idEmpresa` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `cliente_encuesta`
+--
+ALTER TABLE `cliente_encuesta`
+  ADD PRIMARY KEY (`idClienteEncuesta`),
+  ADD KEY `idEncuesta` (`idEncuesta`);
+
+--
+-- Indices de la tabla `cliente_lista_respuesta`
+--
+ALTER TABLE `cliente_lista_respuesta`
+  ADD PRIMARY KEY (`idClienteListaRespuesta`),
+  ADD KEY `idClienteEncuesta` (`idClienteEncuesta`),
+  ADD KEY `idPregunta` (`idPregunta`),
+  ADD KEY `idRespuesta` (`idRespuesta`);
+
+--
+-- Indices de la tabla `cliente_respuesta`
+--
+ALTER TABLE `cliente_respuesta`
+  ADD PRIMARY KEY (`idClienteRespuesta`),
+  ADD KEY `idClienteEncuesta` (`idClienteEncuesta`),
+  ADD KEY `idPregunta` (`idPregunta`);
+
+--
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idEmpresa`),
-  ADD KEY `idTipoEmpresa` (`idTipoEmpresa`),
-  ADD KEY `idEstado` (`idEstado`);
+  ADD KEY `idTipoEmpresa` (`idTipoEmpresa`);
 
 --
 -- Indices de la tabla `encuesta`
@@ -288,9 +361,16 @@ ALTER TABLE `tipousuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`),
-  ADD KEY `idEmpresa` (`idEmpresa`),
   ADD KEY `idTipoUsuario` (`idTipoUsuario`),
   ADD KEY `idEstado` (`idEstado`);
+
+--
+-- Indices de la tabla `usuario_empresa`
+--
+ALTER TABLE `usuario_empresa`
+  ADD PRIMARY KEY (`idUsuarioEmpresa`),
+  ADD KEY `idEmpresa` (`idEmpresa`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -301,24 +381,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `empresa`
   MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `encuesta`
---
-ALTER TABLE `encuesta`
-  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `pregunta`
---
-ALTER TABLE `pregunta`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `respuesta`
---
-ALTER TABLE `respuesta`
-  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoempresa`
@@ -333,33 +395,47 @@ ALTER TABLE `tipoestado`
   MODIFY `idEstado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `tipopregunta`
---
-ALTER TABLE `tipopregunta`
-  MODIFY `idTipoPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT de la tabla `tipousuario`
 --
 ALTER TABLE `tipousuario`
   MODIFY `idTipoUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT de la tabla `usuario_empresa`
 --
-ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `usuario_empresa`
+  MODIFY `idUsuarioEmpresa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
+-- Filtros para la tabla `cliente_encuesta`
+--
+ALTER TABLE `cliente_encuesta`
+  ADD CONSTRAINT `cliente_encuesta_ibfk_1` FOREIGN KEY (`idEncuesta`) REFERENCES `encuesta` (`idEncuesta`);
+
+--
+-- Filtros para la tabla `cliente_lista_respuesta`
+--
+ALTER TABLE `cliente_lista_respuesta`
+  ADD CONSTRAINT `cliente_lista_respuesta_ibfk_1` FOREIGN KEY (`idClienteEncuesta`) REFERENCES `cliente_encuesta` (`idClienteEncuesta`),
+  ADD CONSTRAINT `cliente_lista_respuesta_ibfk_2` FOREIGN KEY (`idPregunta`) REFERENCES `pregunta` (`idPregunta`),
+  ADD CONSTRAINT `cliente_lista_respuesta_ibfk_3` FOREIGN KEY (`idRespuesta`) REFERENCES `respuesta` (`idRespuesta`);
+
+--
+-- Filtros para la tabla `cliente_respuesta`
+--
+ALTER TABLE `cliente_respuesta`
+  ADD CONSTRAINT `cliente_respuesta_ibfk_1` FOREIGN KEY (`idClienteEncuesta`) REFERENCES `cliente_encuesta` (`idClienteEncuesta`),
+  ADD CONSTRAINT `cliente_respuesta_ibfk_2` FOREIGN KEY (`idPregunta`) REFERENCES `pregunta` (`idPregunta`);
+
+--
 -- Filtros para la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idTipoEmpresa`) REFERENCES `tipoempresa` (`idTipoEmpresa`),
-  ADD CONSTRAINT `empresa_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `tipoestado` (`idEstado`);
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idTipoEmpresa`) REFERENCES `tipoempresa` (`idTipoEmpresa`);
 
 --
 -- Filtros para la tabla `encuesta`
@@ -385,9 +461,15 @@ ALTER TABLE `respuesta`
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idEmpresa`) REFERENCES `empresa` (`idEmpresa`),
-  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`),
-  ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`idEstado`) REFERENCES `tipoestado` (`idEstado`);
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`),
+  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `tipoestado` (`idEstado`);
+
+--
+-- Filtros para la tabla `usuario_empresa`
+--
+ALTER TABLE `usuario_empresa`
+  ADD CONSTRAINT `usuario_empresa_ibfk_1` FOREIGN KEY (`idEmpresa`) REFERENCES `empresa` (`idEmpresa`),
+  ADD CONSTRAINT `usuario_empresa_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
