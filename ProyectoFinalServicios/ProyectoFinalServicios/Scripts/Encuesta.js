@@ -2,6 +2,7 @@
     
    var urls = {
         
+        updateQuiz : '/Encuesta/UpdateQuiz',
         listAll : '/Encuesta/GetAll',
         listTypeQuestion : '/Encuesta/GetTypeQuestion'
         
@@ -40,6 +41,17 @@
             $('#slide-publish').on('change', function(){
                 console.log(data);
             });
+            //send data temp
+           
+            
+            var ajax_call = function() {
+               App.request.post(urls.updateQuiz, function(response){
+                });
+            };
+
+            var interval = 1000 * 60 * 0.10; // where X is your every X minutes
+
+            setInterval(ajax_call, interval);
         },
         addEvents : function(){
         },
