@@ -44,10 +44,13 @@ namespace ProyectoFinalServicios.Controllers
             List<EncuestaModel> lst = bl.Listar();
             var obj = new
             {
+                status = 1,
+                message = "ok",
                 data = lst
             };
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
+
         // POST: api/Encuesta
         public void Post([FromBody]EncuestaModel encuesta)
         {

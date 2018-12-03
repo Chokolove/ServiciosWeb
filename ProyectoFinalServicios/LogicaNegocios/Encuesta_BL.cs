@@ -45,5 +45,28 @@ namespace LogicaNegocios
             }
         }
 
+        public List<String> RegistraPreguntas(List<PreguntaModelo> lstPreguntas)
+        {
+            try
+            {
+                return oEncuesta_SD.RegistraPreguntas(lstPreguntas);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public String RegistrarRespuesta(List<RespuestaModelo> lstRepuesta)
+        {
+            try
+            {
+                return oEncuesta_SD.RegistraRespuestas(lstRepuesta);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

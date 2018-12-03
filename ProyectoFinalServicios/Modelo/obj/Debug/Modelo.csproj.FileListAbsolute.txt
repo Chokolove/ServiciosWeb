@@ -27,4 +27,8 @@ D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Mo
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.dll
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.pdb
+<<<<<<< HEAD
 >>>>>>> 77989b142dd718e3028bb5682cbe504c781165f1
+=======
+D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\repo\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+>>>>>>> 36c3890c5643e719571c52723568e5e1cfd49383
