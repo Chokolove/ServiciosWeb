@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2018 a las 00:24:37
+-- Tiempo de generación: 03-12-2018 a las 01:42:15
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 --
 create database `encuestadb`;
 use `encuestadb`;
+
 -- --------------------------------------------------------
 
 --
@@ -154,6 +155,12 @@ INSERT INTO `respuesta` (`idRespuesta`, `idPregunta`, `descRespuesta`) VALUES
 (1, 1, 'Respuesta1 Pregunta1'),
 (2, 1, 'Respuesta2 Pregunta1'),
 (3, 1, 'Respuesta3 Pregunta1'),
+(4, 2, 'Respuesta 1 Pregunta 2'),
+(5, 2, 'Respuesta 2 Pregunta 2'),
+(6, 2, 'Respuesta 3 Pregunta 2'),
+(7, 4, 'Respuesta 1 Pregunta 4'),
+(8, 4, 'Respuesta 2 Pregunta 4'),
+(9, 4, 'Respuesta 3 Pregunta 4'),
 (10, 3, '--Abierta--');
 
 -- --------------------------------------------------------
