@@ -17,7 +17,7 @@ namespace Modelo
         [DataMember]
         public String  descRespuesta { get; set; }
 
-        public RespuestaModelo(int idRespuesta, PreguntaModelo pregunta, string descRespuesta, int contRespuesta)
+        public RespuestaModelo(int idRespuesta, PreguntaModelo pregunta, string descRespuesta)
         {
             this.idRespuesta = idRespuesta;
             this.pregunta = pregunta;

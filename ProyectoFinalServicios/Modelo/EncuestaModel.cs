@@ -16,7 +16,6 @@ namespace Modelo
             Usuario=1,
             NomEncuesta=2,
             FechaCreacion = 3,
-            Estado=4
         }
 
         [DataMember]
@@ -32,7 +31,7 @@ namespace Modelo
         [DataMember]
         public int cantPreg { get; set; }
 
-        public EncuestaModel(int idEncuesta, UsuarioModelo usuario, string nomEncuesta, int contRespuestas, string fechaCreacion, TipoEstadoModelo tipoEstado)
+        public EncuestaModel(int idEncuesta, UsuarioModelo usuario, string nomEncuesta, string fechaCreacion, TipoEstadoModelo tipoEstado)
         {
             IdEncuesta = idEncuesta;
             Usuario = usuario;

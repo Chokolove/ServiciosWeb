@@ -17,9 +17,11 @@ namespace Modelo
             Pass=2,
             NomUsu=3,
             Empresa=4,
-            FchaCreacion=5,
+            FechaCreacion=5,
             TipoUsuario =6,
-            Estado =7
+            Estado =7,
+            Token=8,
+            App_secret=9
         }
 
         [DataMember]
@@ -33,22 +35,28 @@ namespace Modelo
         [DataMember]
         public EmpresaModelo Empresa { get; set; }
         [DataMember]
-        public String FchaCreacion { get; set; }
+        public String FechaCreacion { get; set; }
         [DataMember]
         public TipoUsuarioModel TipoUsuario { get; set; }
         [DataMember]
         public TipoEstadoModelo TipoEstado { get; set; }
+        [DataMember]
+        public String Token { get; set; }
+        [DataMember]
+        public String App_secret { get; set; }
 
-        public UsuarioModelo(int idUsuario, string login, string pass, string nomUsu, EmpresaModelo empresa, string fchaCreacion, TipoUsuarioModel tipoUsuario, TipoEstadoModelo tipoEstado)
+        public UsuarioModelo(int idUsuario, string login, string pass, string nomUsu, EmpresaModelo empresa, string fechaCreacion, TipoUsuarioModel tipoUsuario, TipoEstadoModelo tipoEstado, string token, string app_secret)
         {
             IdUsuario = idUsuario;
             Login = login;
             Pass = pass;
             NomUsu = nomUsu;
             Empresa = empresa;
-            FchaCreacion = fchaCreacion;
+            FechaCreacion = fechaCreacion;
             TipoUsuario = tipoUsuario;
             TipoEstado = tipoEstado;
+            Token = token;
+            App_secret = app_secret;
         }
 
         public UsuarioModelo()
@@ -58,9 +66,11 @@ namespace Modelo
             Pass = "";
             NomUsu = "";
             Empresa = new EmpresaModelo();
-            FchaCreacion = "";
+            FechaCreacion = "";
             TipoUsuario = new TipoUsuarioModel();
             TipoEstado = new TipoEstadoModelo();
+            Token = "";
+            App_secret = "";
         }
     }
 }
