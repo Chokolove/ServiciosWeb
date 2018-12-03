@@ -1,0 +1,44 @@
+﻿@section scripts{
+    @Scripts.Render("~/Scripts/Encuesta.js")
+
+}
+<div class="wrapper">
+    <div class='container-fluid'>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="page-title-box">
+                        <a href="/Encuesta/Crear" class="btn btn-lg btn-primary"><i class="fa fa-plus"></i> Nueva encuesta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="list-quiz">
+        </div>
+    </div>
+</div>
+
+
+<script id="quiz-template" type="text/x-handlebars-template">
+     <div class="col-3">
+         <div class="card m-b-10">
+            <div class="card-body">
+                <div class="simple-list">
+                    <div class="mscol text name">
+                        <h5>{{name}}</h5>
+                    </div>
+                    <div class="mscol text info">
+                        <span>{{count_quiz}} preguntas  // <span class="text-info">{{count_answers}} respuestas</span></span>
+                        <small>Creado por <b>{{username}}</b> {{time}}</small>
+                    </div>
+                    
+                    <div class="mscol actions">
+                        <a href="/Encuesta/Editar/{{id}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Editar</a>
+                        <a href="/Encuesta/Reportes/{{id}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Reportes</a>
+                        <a href="/Encuesta/Delete" data-id='{{id}}' class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</script>
