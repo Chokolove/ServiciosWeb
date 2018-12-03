@@ -3456,11 +3456,14 @@ color:#fff}
 }
 
 .type-text{}
+
+.type-checkbox ul,
 .type-options ul{
     list-style:none;
     padding:0;
     margin:0;
 }
+.type-checkbox ul li,
 .type-options ul li{
     margin:10px 0;
 }
@@ -3473,5 +3476,19 @@ color:#fff}
     width:auto;
 }
 .type-group-list .tmp-radio{
-    
+    margin-right:5px;
+    width:15px;
+    height:15px;
+    display:inline-block;
+    border:2px solid #ccc;
+    border-radius:100px;
+}
+
+.type-group-list .tmp-checkbox{
+    margin-right:5px;
+    width:15px;
+    height:15px;
+    display:inline-block;
+    border:2px solid #ccc;
+    border-radius:2px;
 }
