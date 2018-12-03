@@ -106,16 +106,17 @@ namespace AccesoDatos
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("pIdUsuario", encuesta.Usuario.IdUsuario);
             command.Parameters.AddWithValue("pNomEncuesta", encuesta.NomEncuesta);
-            command.Parameters.AddWithValue("pFechaCreacion", DateTime.Now.ToString("YYYY-M-d"));
+            command.Parameters.AddWithValue("pFechaCreacion", encuesta.FechaCreacion);
             command.Parameters.AddWithValue("pIdEstado", encuesta.TipoEstado.IdTipoEstado);
-            command.Parameters["@pIdEncuesta"].Direction = ParameterDirection.Output;
+            command.Parameters.AddWithValue("pIdEncuesta", "");
+            command.Parameters["pIdEncuesta"].Direction = ParameterDirection.Output;
 
             string idEncuesta = "";
             try
             {
                 conn.Open();
                 command.ExecuteNonQuery();
-                idEncuesta = command.Parameters["@pIdEncuesta"].Value.ToString();
+                idEncuesta = command.Parameters["pIdEncuesta"].Value.ToString();
                 
             }
             catch (Exception e)
@@ -137,23 +138,31 @@ namespace AccesoDatos
         }
         public List<String> RegistraPreguntas(List<PreguntaModelo> lstPregunta)
         {
-            MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
-            MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "STP_insertaPregunta";
-            command.CommandType = CommandType.StoredProcedure;
+            
             List<String> lstIdPreguntas = new List<String>();
             foreach (PreguntaModelo x in lstPregunta)
             {
+                MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "STP_insertaPregunta";
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("pIdEncuesta", x.encuesta.IdEncuesta);
                 command.Parameters.AddWithValue("pDescPregunta", x.descPregunta);
                 command.Parameters.AddWithValue("pTipoPregunta", x.tipoPregunta.idTipoPregunta);
-                command.Parameters["@pIdPregunta"].Direction = ParameterDirection.Output;
+                command.Parameters.AddWithValue("pIdPregunta", "");
+                command.Parameters["pIdPregunta"].Direction = ParameterDirection.Output;
 
                 try
                 {
                     conn.Open();
                     command.ExecuteNonQuery();
-                    lstIdPreguntas.Add(command.Parameters["@pIdEncuesta"].Value.ToString());
+                    lstIdPreguntas.Add(command.Parameters["pIdEncuesta"].Value.ToString());
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                    command.Dispose();
+                    conn.Dispose();
 
                 }
                 catch (Exception e)
@@ -163,13 +172,6 @@ namespace AccesoDatos
 
             }
 
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-                command.Dispose();
-                conn.Dispose();
             
 
 
@@ -177,13 +179,14 @@ namespace AccesoDatos
         }
         public String RegistraRespuestas(List<RespuestaModelo> lstRespuesta)
         {
-            MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
-            MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "STP_insertaRespuesta";
-            command.CommandType = CommandType.StoredProcedure;
+            
             String respuesta = "";
             foreach (RespuestaModelo x in lstRespuesta)
             {
+                MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
+                MySqlCommand command = conn.CreateCommand();
+                command.CommandText = "STP_insertaRespuesta";
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("pIdPregunta", x.pregunta.idPregunta);
                 command.Parameters.AddWithValue("pDescRespuesta", x.descRespuesta);
 
@@ -192,6 +195,12 @@ namespace AccesoDatos
                     conn.Open();
                     command.ExecuteNonQuery();
                     respuesta="success";
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                    command.Dispose();
+                    conn.Dispose();
 
                 }
                 catch (Exception e)
@@ -201,16 +210,6 @@ namespace AccesoDatos
                 }
 
             }
-
-
-            if (conn.State == ConnectionState.Open)
-            {
-                conn.Close();
-            }
-            command.Dispose();
-            conn.Dispose();
-
-
 
             return respuesta;
         }
