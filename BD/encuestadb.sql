@@ -56,11 +56,11 @@ END$$
    inner join usuario u on e.idUsuario = u.idUsuario 
    inner join tipoestado te on e.idEstado = te.idEstado order by e.idEncuesta;
    END //
- DELIMITER ;
- 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_ListarEncuestaKey` (IN `id` INT(11))  NO SQL
+   
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_ListarEncuestaKey`(IN `id` INT)
+    NO SQL
 SELECT e.idEncuesta,e.nomEncuesta, p.idPregunta,p.descPregunta,p.idTipoPregunta, r.idRespuesta,r.descRespuesta FROM pregunta p left join respuesta r on p.idPregunta=r.idPregunta inner JOIN encuesta e on p.idEncuesta=e.idEncuesta where e.idEncuesta = id$$
-
 DELIMITER ;
 
 -- --------------------------------------------------------
