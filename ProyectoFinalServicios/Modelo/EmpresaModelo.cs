@@ -15,7 +15,7 @@ namespace Modelo
             IdEmpresa =0,
             NomEmpresa =1,
             TipoEmpresa=2,
-            FchaCreacion=3,
+            FechaCreacion=3,
             Estado=4
         }
         [DataMember]
@@ -25,7 +25,7 @@ namespace Modelo
         [DataMember]
         public TipoEmpresaModel TipoEmpresa { get; set; }
         [DataMember]
-        public String FchaCreacion { get; set; }
+        public String FechaCreacion { get; set; }
         [DataMember]
         public TipoEstadoModelo TipoEstado { get; set; }
 
@@ -34,7 +34,7 @@ namespace Modelo
             IdEmpresa = idEmpresa;
             NomEmpresa = nomEmpresa;
             TipoEmpresa = tipoEmpresa;
-            FchaCreacion = fchaCreacion;
+            FechaCreacion = fchaCreacion;
             TipoEstado = tipoEstado;
         }
 
@@ -43,7 +43,7 @@ namespace Modelo
             IdEmpresa = 0;
             NomEmpresa = "";
             TipoEmpresa = new TipoEmpresaModel();
-            FchaCreacion = "";
+            FechaCreacion = "";
             TipoEstado = new TipoEstadoModelo();
         }
     }

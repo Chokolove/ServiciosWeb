@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente_EncuestaModel.cs" />
+    <Compile Include="Cliente_Lista_RespuestaModel.cs" />
+    <Compile Include="Cliente_RespuestaModel.cs" />
     <Compile Include="EmpresaModelo.cs" />
     <Compile Include="EncuestaModel.cs" />
     <Compile Include="ModeloBase.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="TipoPreguntaModelo.cs" />
     <Compile Include="TipoUsuarioModel.cs" />
     <Compile Include="UsuarioModelo.cs" />
+    <Compile Include="Usuario_EmpresaModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,9 +15,8 @@ namespace Modelo
             IdEncuesta=0,
             Usuario=1,
             NomEncuesta=2,
-            ContRespuestas=3,
-            FchaCreacion=4,
-            Estado=5
+            FechaCreacion=3,
+            Estado=4
         }
 
         [DataMember]
@@ -27,19 +26,16 @@ namespace Modelo
         [DataMember]
         public String NomEncuesta { get; set; }
         [DataMember]
-        public int ContRespuestas { get; set; }
-        [DataMember]
-        public String FchaCreacion { get; set; }
+        public String FechaCreacion { get; set; }
         [DataMember]
         public TipoEstadoModelo TipoEstado { get; set; }
 
-        public EncuestaModel(int idEncuesta, UsuarioModelo usuario, string nomEncuesta, int contRespuestas, string fchaCreacion, TipoEstadoModelo tipoEstado)
+        public EncuestaModel(int idEncuesta, UsuarioModelo usuario, string nomEncuesta, string fchaCreacion, TipoEstadoModelo tipoEstado)
         {
             IdEncuesta = idEncuesta;
             Usuario = usuario;
             NomEncuesta = nomEncuesta;
-            ContRespuestas = contRespuestas;
-            FchaCreacion = fchaCreacion;
+            FechaCreacion = fchaCreacion;
             TipoEstado = tipoEstado;
         }
 
@@ -48,8 +44,7 @@ namespace Modelo
             IdEncuesta = 0;
             Usuario = new UsuarioModelo();
             NomEncuesta = "";
-            ContRespuestas = 0;
-            FchaCreacion = "";
+            FechaCreacion = "";
             TipoEstado = new TipoEstadoModelo();
         }
     }
