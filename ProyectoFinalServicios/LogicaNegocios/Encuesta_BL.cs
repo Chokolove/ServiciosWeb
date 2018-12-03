@@ -33,6 +33,17 @@ namespace LogicaNegocios
                 throw ex;
             }
         }
+        public String RegistraEncuesta(EncuestaModel encuesta)
+        {
+            try
+            {
+                return oEncuesta_SD.RegistraEncuesta(encuesta);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

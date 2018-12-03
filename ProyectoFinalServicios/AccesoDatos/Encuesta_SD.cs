@@ -97,5 +97,122 @@ namespace AccesoDatos
             }
             return lista;
         }
+
+        public String RegistraEncuesta(EncuestaModel encuesta)
+        {
+            MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "STP_insertaEncuesta";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("pIdUsuario", encuesta.Usuario.IdUsuario);
+            command.Parameters.AddWithValue("pNomEncuesta", encuesta.NomEncuesta);
+            command.Parameters.AddWithValue("pFechaCreacion", DateTime.Now.ToString("YYYY-M-d"));
+            command.Parameters.AddWithValue("pIdEstado", encuesta.TipoEstado.IdTipoEstado);
+            command.Parameters["@pIdEncuesta"].Direction = ParameterDirection.Output;
+
+            string idEncuesta = "";
+            try
+            {
+                conn.Open();
+                command.ExecuteNonQuery();
+                idEncuesta = command.Parameters["@pIdEncuesta"].Value.ToString();
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Inserta Encuesta:" + e.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                command.Dispose();
+                conn.Dispose();
+            }
+
+            
+            return idEncuesta;
+        }
+        public List<String> RegistraPreguntas(List<PreguntaModelo> lstPregunta)
+        {
+            MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "STP_insertaPregunta";
+            command.CommandType = CommandType.StoredProcedure;
+            List<String> lstIdPreguntas = new List<String>();
+            foreach (PreguntaModelo x in lstPregunta)
+            {
+                command.Parameters.AddWithValue("pIdEncuesta", x.encuesta.IdEncuesta);
+                command.Parameters.AddWithValue("pDescPregunta", x.descPregunta);
+                command.Parameters.AddWithValue("pTipoPregunta", x.tipoPregunta.idTipoPregunta);
+                command.Parameters["@pIdPregunta"].Direction = ParameterDirection.Output;
+
+                try
+                {
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    lstIdPreguntas.Add(command.Parameters["@pIdEncuesta"].Value.ToString());
+
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Inserta Encuesta:" + e.Message);
+                }
+
+            }
+
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                command.Dispose();
+                conn.Dispose();
+            
+
+
+            return lstIdPreguntas;
+        }
+        public String RegistraRespuestas(List<RespuestaModelo> lstRespuesta)
+        {
+            MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "STP_insertaRespuesta";
+            command.CommandType = CommandType.StoredProcedure;
+            String respuesta = "";
+            foreach (RespuestaModelo x in lstRespuesta)
+            {
+                command.Parameters.AddWithValue("pIdPregunta", x.pregunta.idPregunta);
+                command.Parameters.AddWithValue("pDescRespuesta", x.descRespuesta);
+
+                try
+                {
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    respuesta="success";
+
+                }
+                catch (Exception e)
+                {
+                    respuesta = "Error ..dont ask me where";
+                    throw new Exception("Inserta Encuesta:" + e.Message);
+                }
+
+            }
+
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            command.Dispose();
+            conn.Dispose();
+
+
+
+            return respuesta;
+        }
     }
 }
