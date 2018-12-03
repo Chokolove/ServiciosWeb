@@ -1,52 +1,37 @@
-﻿<div class="wrapper">
+﻿@section scripts{
+    @Scripts.Render("~/Scripts/Encuesta.js")
+    <script>
+        G_Encuesta.Create.Init();
+    </script>
+}
+<div class="wrapper">
     <div class='container content-quiz'>
         <div class="quiz">
             <form class="form-quiz">
                 <div class="title-quiz">
+                     <div class="publish">
+                         <label class="switch" for="slide-publish">
+                            <input type="checkbox" id="slide-publish" />
+                            <div class="slider round"></div>
+                          </label>
+                        <span>Publicar encuesta</span>
+                    </div>
                     <input type="text" 
+                           id="quiz-title"
                            autocomplete="off"
                            placeholder="Nombre de la Encuesta"
                            name="NomEncuesta" class="title form-control" />
                 </div>
-                <div class="list-questions">
-                    <div class="custom-input">
-                        <div class="row">
-                            <div class="col-7">
-                                <input type="text" class="form-control" />
-                            </div>
-                            <div class="col-5">
-                                <select class="form-control" >
-                                    <option>Texto</option>
-                                    <option>Radio Button</option>
-                                    <option>Radio Button</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class='list-options'>
-                             <div class="type-checkbox">
-                                <ul>
-                                    <li>
-                                        <div class="type-group-list">
-                                            <div class="inline tmp-checkbox"></div>
-                                            <input type="text" value="Checkbox 1" class="inline form-control"/>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <a href="#" class="btn-sm btn circle rounded btn-primary"><i class="fa fa-plus"></i> Agregar opción</a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class='actions-quiz'>
-                            <a href="" class="btn btn-info"><i class="fa fa-copy"></i></a>
-                            <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                        </div>
-                    </div>
-                    
+                <div id='list-questions' class="list-questions">
+                   
                     
                 </div>
             </form>
+             <div class="bottom-actions">
+                <a href="" id='add-question' class="button-add"><i class="fa fa-plus"></i></a>
+            </div>
         </div>
-        <a href="" class="button-add"><i class="fa fa-plus"></i></a>
+       
     </div>
 </div>
 
@@ -56,27 +41,64 @@
     </div>
 </script>
 
+<script id="type-item-checkbox-template" type="text/x-handlebars-template">
+    <li>
+        <div class="type-group-list">
+            <div class="inline tmp-checkbox"></div>
+            <input type="text" value="Checkbox" class="textOption inline form-control"/>
+        </div>
+    </li>
+</script>
 <script id="type-checkbox-template" type="text/x-handlebars-template">
-   
+    <div class="type-checkbox">
+        <ul>
+        </ul>
+        <a href="#" class="add-option btn-sm btn circle rounded btn-primary"><i class="fa fa-plus"></i> Agregar opción</a>
+    </div>
 </script>
     
+<script id="type-item-options-template" type="text/x-handlebars-template">
+     <li>
+        <div class="type-group-list">
+            <div class="inline tmp-radio"></div>
+            <input type="text" value="Opción 1" class="textOption inline form-control"/>
+            <a href='' class='delete-option btn btn-sm btn-danger'><i class='fa fa-times'></i></a>
+        </div>
+    </li>
+</script>
 <script id="type-options-template" type="text/x-handlebars-template">
 
     <div class="type-options">
         <ul>
-            <li>
-                <div class="type-group-list">
-                    <div class="inline tmp-radio"></div>
-                    <input type="text" value="Opción 1" class="inline form-control"/>
-                </div>
-            </li>
         </ul>
-        <a href="#" class="btn-sm btn circle rounded btn-primary"><i class="fa fa-plus"></i> Agregar opción</a>
+        <a href="#" class="add-option btn-sm btn circle rounded btn-primary"><i class="fa fa-plus"></i> Agregar opción</a>
     </div>
 </script>
     
     
 <script id="create-template" type="text/x-handlebars-template">
+    <div class="custom-input" id='{{id}}'>
+        <div class="row">
+            <div class="col-7">
+                <input type="text"  value='{{questionDefault}}' class="questionTitle form-control" />
+            </div>
+            <div class="col-5">
+                <select class="questionType form-control" >
+                    {{#each types}}
+                        <option value="{{idTipoPregunta}}">{{nomTipoPregunta}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class='list-options'>
+            
+        </div>
+        <hr>
+        <div class='actions-quiz'>
+            <a href="" class="action-copy btn btn-info"><i class="fa fa-copy"></i></a>
+            <a href="" class="action-delete btn btn-danger"><i class="fa fa-trash"></i></a>
+        </div>
+    </div>
 
 </script>
     

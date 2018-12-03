@@ -22,6 +22,7 @@ namespace LogicaNegocios
                 throw ex;
             }
         }
+
         public List<RespuestaModelo> ListarEncuestaCompleta(int id)
         {
             try

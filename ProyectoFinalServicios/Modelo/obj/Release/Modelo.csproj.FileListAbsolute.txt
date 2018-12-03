@@ -1,0 +1,6 @@
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/bin/Release/Modelo.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/bin/Release/Modelo.pdb
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/obj/Release/Modelo.csprojAssemblyReference.cache
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/obj/Release/Modelo.csproj.CoreCompileInputs.cache
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/obj/Release/Modelo.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/Modelo/obj/Release/Modelo.pdb

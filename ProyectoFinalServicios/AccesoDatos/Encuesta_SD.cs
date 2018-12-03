@@ -53,6 +53,7 @@ namespace AccesoDatos
             }
             return lista;
         }
+
         public List<RespuestaModelo> ListarEncuestaCompleta(int id)
         {
             List<RespuestaModelo> lista = new List<RespuestaModelo>();

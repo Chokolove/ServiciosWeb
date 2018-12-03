@@ -16,6 +16,7 @@ namespace ProyectoFinalServicios.Controllers
     public class EncuestaController : Controller
     {
         Encuesta_BL bl = new Encuesta_BL();
+        Pregunta_BL pbl = new Pregunta_BL();
 
         public ActionResult Lista()
         {
@@ -42,6 +43,18 @@ namespace ProyectoFinalServicios.Controllers
         /*JSON*/
         public JsonResult GetAll(){
             List<EncuestaModel> lst = bl.Listar();
+            var obj = new
+            {
+                status = 1,
+                message = "ok",
+                data = lst
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+        /*JSON*/
+        public JsonResult GetTypeQuestion()
+        {
+            List<TipoPreguntaModelo> lst = pbl.ListarTipos();
             var obj = new
             {
                 status = 1,
