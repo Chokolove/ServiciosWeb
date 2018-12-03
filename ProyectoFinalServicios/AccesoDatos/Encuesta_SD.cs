@@ -17,7 +17,8 @@ namespace AccesoDatos
             List<EncuestaModel> lista = new List<EncuestaModel>();
             MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT e.idEncuesta,u.idUsuario, u.nomUsu, e.nomEncuesta, e.fechaCreacion,t.idEstado, t.nomEstado FROM encuesta e INNER JOIN usuario u on e.idUsuario=u.idUsuario INNER JOIN tipoestado t on e.idEstado=t.idEstado ";
+            command.CommandText = "STP_ListarEncuesta";
+            command.CommandType = CommandType.StoredProcedure;
 
             try
             {
@@ -57,8 +58,9 @@ namespace AccesoDatos
 
             MySqlConnection conn = new MySqlConnection(this.CadenaConexion());
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT e.idEncuesta,e.nomEncuesta, p.idPregunta,p.descPregunta,p.idTipoPregunta, r.idRespuesta,r.descRespuesta FROM pregunta p left join respuesta r on p.idPregunta=r.idPregunta inner JOIN encuesta e on p.idEncuesta=e.idEncuesta where e.idEncuesta = @param_id";
-            command.Parameters.AddWithValue("@param_id", id);
+            command.CommandText = "STP_ListarEncuestaKey";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("id", id);
 
             try
             {

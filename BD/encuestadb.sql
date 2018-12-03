@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2018 a las 01:42:15
+-- Tiempo de generación: 03-12-2018 a las 03:01:28
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -23,6 +23,37 @@ SET time_zone = "+00:00";
 --
 create database `encuestadb`;
 use `encuestadb`;
+
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_insertaEncuesta` (IN `pIdUsuario` INT, IN `pNomEncuesta` VARCHAR(255), IN `pFechaCreacion` DATE, IN `pIdEstado` INT)  NO SQL
+BEGIN
+set @id =(SELECT max(idEncuesta) from encuesta)+1;
+INSERT INTO encuesta VALUES (@id,pIdUsuario,pNomEncuesta,pFechaCreacion,pIdEstado);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_insertaPregunta` (IN `pIdEncuesta` INT, IN `pDescPregunta` VARCHAR(255), IN `pTipoPregunta` INT)  NO SQL
+BEGIN
+set @id =(SELECT max(idPregunta) from pregunta)+1;
+INSERT INTO pregunta VALUES (@id,pIdEncuesta,pDescPregunta,pTipoPregunta);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_insertaRespuesta` (IN `pIdPregunta` INT, IN `pDescRespuesta` VARCHAR(255))  NO SQL
+BEGIN
+set @id =(SELECT max(idRespuesta) from respuesta)+1;
+INSERT INTO respuesta VALUES (@id,pIdPregunta,pDescRespuesta);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_ListarEncuesta` ()  NO SQL
+SELECT e.idEncuesta,u.idUsuario, u.nomUsu, e.nomEncuesta, e.fechaCreacion,t.idEstado, t.nomEstado FROM encuesta e INNER JOIN usuario u on e.idUsuario=u.idUsuario INNER JOIN tipoestado t on e.idEstado=t.idEstado$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `STP_ListarEncuestaKey` (IN `id` INT(11))  NO SQL
+SELECT e.idEncuesta,e.nomEncuesta, p.idPregunta,p.descPregunta,p.idTipoPregunta, r.idRespuesta,r.descRespuesta FROM pregunta p left join respuesta r on p.idPregunta=r.idPregunta inner JOIN encuesta e on p.idEncuesta=e.idEncuesta where e.idEncuesta = id$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +141,8 @@ CREATE TABLE `encuesta` (
 INSERT INTO `encuesta` (`idEncuesta`, `idUsuario`, `nomEncuesta`, `fechaCreacion`, `idEstado`) VALUES
 (1, 1, 'PruebaEncuesta1', '2018-11-17 00:00:00', 2),
 (2, 1, 'PruebaEncuesta2', '2018-11-17 00:00:00', 2),
-(3, 1, 'PruebaEncuesta2', '2018-11-17 00:00:00', 1);
+(3, 1, 'PruebaEncuesta2', '2018-11-17 00:00:00', 1),
+(4, 1, 'PruebaSTP', '2018-12-02 00:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -133,7 +165,9 @@ INSERT INTO `pregunta` (`idPregunta`, `idEncuesta`, `descPregunta`, `idTipoPregu
 (1, 1, 'Pregunta Numero 1', 2),
 (2, 1, 'Pregunta Numero 2', 2),
 (3, 1, 'Pregunta Numero 3', 1),
-(4, 1, 'Pregunta Numero 4', 3);
+(4, 1, 'Pregunta Numero 4', 3),
+(5, 4, 'PruebaSTPregunta1', 2),
+(6, 4, 'PruebaSTPPregunta2', 2);
 
 -- --------------------------------------------------------
 
@@ -161,7 +195,11 @@ INSERT INTO `respuesta` (`idRespuesta`, `idPregunta`, `descRespuesta`) VALUES
 (7, 4, 'Respuesta 1 Pregunta 4'),
 (8, 4, 'Respuesta 2 Pregunta 4'),
 (9, 4, 'Respuesta 3 Pregunta 4'),
-(10, 3, '--Abierta--');
+(10, 3, '--Abierta--'),
+(11, 5, 'STPRespuesta1Prg1'),
+(12, 5, 'STPRes2Preg1'),
+(13, 6, 'STPRes1Preg2'),
+(14, 6, 'STPRes2Preg2');
 
 -- --------------------------------------------------------
 
