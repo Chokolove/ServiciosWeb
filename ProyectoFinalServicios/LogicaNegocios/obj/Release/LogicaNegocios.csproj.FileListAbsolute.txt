@@ -1,0 +1,15 @@
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/LogicaNegocios.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/LogicaNegocios.pdb
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/AccesoDatos.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/Modelo.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/MySql.Data.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/Google.Protobuf.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/AccesoDatos.pdb
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/Modelo.pdb
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/MySql.Data.xml
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/bin/Release/Google.Protobuf.xml
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/obj/Release/LogicaNegocios.csprojAssemblyReference.cache
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/obj/Release/LogicaNegocios.csproj.CoreCompileInputs.cache
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/obj/Release/LogicaNegocios.csproj.CopyComplete
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/obj/Release/LogicaNegocios.dll
+/home/dstrok3/Documentos/disk/Projects/cibertec_vs/ProyectoFinalServicios/LogicaNegocios/obj/Release/LogicaNegocios.pdb
