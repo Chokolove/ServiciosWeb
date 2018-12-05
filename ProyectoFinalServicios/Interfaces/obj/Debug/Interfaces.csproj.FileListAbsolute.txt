@@ -25,3 +25,12 @@ D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServ
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.dll
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.pdb
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\bin\Debug\Interfaces.dll
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\bin\Debug\Interfaces.pdb
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\bin\Debug\Modelo.dll
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\bin\Debug\Modelo.pdb
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csprojAssemblyReference.cache
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.csproj.CopyComplete
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.dll
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Interfaces\obj\Debug\Interfaces.pdb

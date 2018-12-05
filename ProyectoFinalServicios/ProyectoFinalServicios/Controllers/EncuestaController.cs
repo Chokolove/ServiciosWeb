@@ -64,10 +64,18 @@ namespace ProyectoFinalServicios.Controllers
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: api/Encuesta
-        public void Post([FromBody]EncuestaModel encuesta)
+        // POST: JSON
+        public JsonResult UpdateQuiz([FromBody]EncuestaModel encuesta, List<PreguntaModelo> lstPreg, List<RespuestaModelo> lstResp)
         {
-            bl.RegistraEncuesta(encuesta); 
+            EncuestaModel oEncuesta = new EncuestaModel();
+            String idEncuesta = encuesta.NomEncuesta;
+            var obj = new
+            {
+                status = 1,
+                message = "ok",
+                data = idEncuesta
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
         // PUT: api/Encuesta/id

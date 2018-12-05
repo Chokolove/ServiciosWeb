@@ -20,3 +20,9 @@ D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServ
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.dll
 D:\Work\repos\Cibertec\ServiciosWeb\ProyectoFinal\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.pdb
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\bin\Debug\Modelo.dll
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\bin\Debug\Modelo.pdb
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.dll
+D:\repos\Cibertec\ServiciosWeb\ProyectoFinalServicios\Modelo\obj\Debug\Modelo.pdb

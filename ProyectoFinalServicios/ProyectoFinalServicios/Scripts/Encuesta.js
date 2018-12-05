@@ -4,12 +4,13 @@
         
         updateQuiz : '/Encuesta/UpdateQuiz',
         listAll : '/Encuesta/GetAll',
-        listTypeQuestion : '/Encuesta/GetTypeQuestion'
+        listTypeQuestion: '/Encuesta/GetTypeQuestion'
         
     }
     
     var data = {
-        meta : {qDefault:'Pregunta'},
+        meta: { qDefault: 'Pregunta' },
+        encuesta: {},
         name : 'Encuesta sin nombre',
         questions:{}
     }
@@ -106,9 +107,13 @@
     }
     this.events = function(){
         var me = this;
-        $('#quiz-title').on('input', function(){
-            data.name = $(this).val();
+        $('#quiz-title').on('input', function () {
+            var d = new Date();
+            data.encuesta.name = $(this).val();
+            data.encuesta.idUsuario = $('#cboUsuario').val();
+            data.encuesta.FechaCreacion = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
         });
+        
         $('#add-question').on('click', function(){
             var tmp = App.template('#create-template');
             
