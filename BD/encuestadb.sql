@@ -21,6 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `encuestadb`
 --
+-- -----------------------------------------------------
+-- Schema encuestadb
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `encuestadb` ;
+
 create database `encuestadb`;
 use `encuestadb`;
 
